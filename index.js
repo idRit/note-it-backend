@@ -26,5 +26,5 @@ mongoose.connect(process.env.MONGO_URI, {
 
 require("./app")(app);
 
-app.listen(3000);
-console.log("working on 3000");
+app.listen(3300);
+console.log("working on 3300");
