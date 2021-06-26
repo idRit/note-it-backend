@@ -31,7 +31,7 @@ exports.processData = async (req, res) => {
     }
 
     try {
-        paragraph = `${response.cleaned} \ntl;dr:`;
+        paragraph = `${response.cleaned}. \ntl;dr:`;
         let tldr = await openAiProcessor(paragraph, ["\n"]);
         response.tldr = tldr.choices[0].text.trim();
     } catch (error) {
