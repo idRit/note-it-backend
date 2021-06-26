@@ -34,3 +34,16 @@ exports.getNoteTldrs = async subject => {
         throw new Error("Something happened!");
     }
 }
+
+exports.getSubjects = async () => {
+    try {
+        let response = await tldrModel.find();
+        response = response
+            .map(el => el.subject)
+            .filter((value, index, self) => self.indexOf(value) === index);
+        return response;
+    } catch (error) {
+        console.log("err: ", error);
+        throw new Error("Something happened!");
+    }
+}

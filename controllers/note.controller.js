@@ -56,3 +56,31 @@ exports.processData = async (req, res) => {
         tldr: response.tldr
     });
 }
+
+exports.subjectList = async (req, res) => {
+    let response = {};
+
+    try {
+        response = await noteProcessor.getSubjects();
+    } catch (error) {
+        return res.json({
+            message: "some error occured"
+        });
+    }
+
+    return res.json({ response });
+}
+
+exports.tldrBySubject = async (req, res) => {
+    let response = {};
+
+    try {
+        response = await noteProcessor.getNoteTldrs(req.params.subject);
+    } catch (error) {
+        return res.json({
+            message: "some error occured"
+        });
+    }
+
+    return res.json({ response });
+}

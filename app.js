@@ -8,4 +8,6 @@ module.exports = app => {
     });
 
     app.post("/api/processData", noteController.processData);
+    app.get("/api/subjectList", noteController.subjectList);
+    app.get("/api/:subject/tldr", noteController.tldrBySubject);
 }
