@@ -20,15 +20,17 @@ exports.processData = async (req, res) => {
         });
     }
 
-    try {
-        paragraph = `Text: ${response.cleaned} \nKeywords:`;
-        let tags = await openAiProcessor(paragraph, ["\n"]);
-        response.tags = tags.choices[0].text.trim().split(", ").map(el => el.toUpperCase());
-    } catch (error) {
-        return res.json({
-            message: "some error occured"
-        });
-    }
+    // try {
+    //     paragraph = `Text: ${response.cleaned} \nKeywords:`;
+    //     let tags = await openAiProcessor(paragraph, ["\n"]);
+    //     response.tags = tags.choices[0].text.trim().split(", ").map(el => el.toUpperCase());
+    // } catch (error) {
+    //     return res.json({
+    //         message: "some error occured"
+    //     });
+    // }
+
+    response.tags = ["TEST"];
 
     try {
         paragraph = `${response.cleaned}. \ntl;dr:`;
