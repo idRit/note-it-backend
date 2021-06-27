@@ -46,7 +46,7 @@ exports.processData = async (req, res) => {
 
     try {
         await noteProcessor.saveNoteTranscript(req.body.subject, response.cleaned, response.tags);
-        await noteProcessor.saveNoteTldr(req.body.subject, response.cleaned, response.tags);
+        await noteProcessor.saveNoteTldr(req.body.subject, response.tldr, response.tags);
         console.log("Data saved to Database!");
     } catch (error) {
         return res.json({
